@@ -1,0 +1,49 @@
+.container{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: ($grid-gutter-width / 2);
+	padding-right: ($grid-gutter-width / 2);
+}
+.row{
+	margin-left: -($grid-gutter-width / 2);
+	margin-right: -($grid-gutter-width / 2);
+}
+
+@each $gutter in $gutters{
+	.gutter-#{$gutter}{
+		margin-left: -(rem($gutter*1px) / 2);
+		margin-right: -(rem($gutter*1px) / 2);
+	}	
+	.gutter-#{$gutter} [class*="grid-"]{
+		padding-left: (rem($gutter*1px) / 2 );
+		padding-right: (rem($gutter*1px) / 2);
+	}
+}
+
+@each $point in map-keys($grid-breakpoints){
+	$container-size : map-get($container-width, $point);
+	$screen-size : map-get($grid-breakpoints, $point);
+	$media : screen;
+	@if ($screen-size != 0){
+		$media : "(min-width:"+rem($screen-size)+")";
+	}
+	@media #{$media}{
+		.container, .container-#{$point}-fixed{
+			width: rem($container-size)
+		}
+		.container-#{$point}-flex{
+			width: 100%;
+		}
+	}
+	.container-#{$point}-max{
+		max-width: rem($container-size)
+	}
+}
+.container-flex{
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: ($grid-gutter-width / 2);
+	padding-right: ($grid-gutter-width / 2);
+}

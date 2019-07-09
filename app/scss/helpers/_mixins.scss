@@ -1,0 +1,77 @@
+@mixin position($t,$r,$b,$l){
+	top: $t;
+	right: $r;
+	bottom: $b;
+	left: $l;
+}
+
+@mixin border-radius($r){
+	border-radius: $r;
+	-moz-border-radius: $r;
+	-webkit-border-radius: $r;
+}
+
+// font size conver to cusstom unit
+
+@function rem($size) {
+  @if ($unit_type == "rem"){
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+  } @else if ($unit_type == "em") {
+    $emSize: $size / 16px;
+    @return $emSize * 1em;
+  } @else {
+    @return $size;
+  }
+}
+
+@mixin font-size($size) {
+  font-size: rem($size);
+}
+
+// get value by key
+@function get($x){
+  @return map-get($grid-breakpoints, $x);
+}
+
+// clearfix 
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+// keyframe
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+// animation-name
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}

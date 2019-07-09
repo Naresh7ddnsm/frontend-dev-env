@@ -1,0 +1,71 @@
+@mixin at-media($media) {
+  @if $media == mobile-vmin or $media == mob-vmin or $media == mob-min {
+    @media screen { @content; }
+  }
+  @else if $media == mobile-hmin or $media == mob-hmin {
+    @media (min-width: $xs-min ) { @content; }
+  }
+  @else if $media == tablet-vmin or $media == tab-vmin or $media == tab-min {
+    @media (min-width: $sm-min ) { @content; }
+  } 
+  @else if $media == tablet-hmin or $media == tab-hmin {
+    @media (min-width: $md-min ) { @content; }
+  } 
+  @else if $media == laptop-min or $media == lap-min {
+    @media (min-width: $lg-min ) { @content; }
+  }
+  @else if $media == desktop-min or $media == dt-min or $media == desk-min or $media == desktop-only or $media == dt-only or $media == desk-only{
+    @media (min-width: $xl-min ) { @content; }
+  }
+  @else if $media == hd-min or $media == hd-screen-min {
+    @media (min-width: $hd-min ) { @content; }
+  }
+  @else if $media == mobile-vmax or $media == mob-vmax or $media == mobile-vonly or $media == mob-vonly {
+    @media (max-width: $xxs-max ) { @content; }
+  }
+  @else if $media == mobile-hmax or $media == mob-hmax or $media == mobile-only or $media == mob-only{
+    @media (max-width: $xs-max ) { @content; }
+  }
+  @else if $media == tablet-vmax or $media == tab-vmax {
+    @media (max-width: $sm-max ) { @content; }
+  }
+  @else if $media == tablet-hmax or $media == tab-hmax or $media == tab-max {
+    @media (max-width: $md-max ) { @content; }
+  }
+  @else if $media == laptop-max or $media == lap-max {
+    @media (max-width: $lg-max ) { @content; }
+  }
+  @else if $media == desktop-max or $media == dt-max or $media == desk-max {
+    @media (max-width: $xl-max ) { @content; }
+  }
+  @else if $media == mobile-honly or $media == mob-honly {
+    @media (min-width: $xs-min ) and (max-width: $xs-max ) { @content; }
+  }
+  @else if $media == tablet-vonly or $media == tab-vonly{
+    @media (min-width: $sm-min) and (max-width: $sm-max) { @content; }
+  }
+  @else if $media == tablet-honly or $media == tab-honly {
+    @media (min-width: $md-min) and (max-width: $md-max) { @content; }
+  }
+  @else if $media == tablet-only or $media == tab-only {
+    @media (min-width: $sm-min) and (max-width: $md-max) { @content; }
+  }
+  @else if $media == laptop-only or $media == lap-only {
+    @media (min-width: $lg-min) and (max-width: $lg-max) { @content; }
+  }
+  @else if $media == hd-only {
+    @media (min-width: $hd-min) { @content; }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

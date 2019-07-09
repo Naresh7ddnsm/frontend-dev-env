@@ -1,0 +1,6 @@
+@mixin browser-prefix($prop, $arg){
+    #{$prop} : #{$arg};
+    #{'-webkit-'+$prop}: #{$arg};
+    #{'-moz-'+$prop}: #{$arg};
+    #{'-o-'+$prop}: #{$arg};
+}

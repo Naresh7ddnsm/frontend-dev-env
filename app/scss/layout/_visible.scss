@@ -1,0 +1,40 @@
+.show{
+	display: block!important;
+}
+.show-inline{
+	display: inline!important;
+}
+.show-inline-block{
+	display: inline-block!important;
+}
+.hide{
+	display: none!important;
+}
+
+@include _vis();
+
+@each $point in map-keys($grid-breakpoints){
+	$min : map-get($grid-breakpoints, $point);
+	$media : "screen";
+	@if ($min != 0) {
+		$media : "(min-width:"+rem($min)+")";
+	}
+	@media #{$media}{
+		.visible-#{$point}{
+			display: block;
+		}
+		.visible-#{$point}-inline{
+			display: inline;
+		}
+		.visible-#{$point}-inline-block{
+			display: inline-block;
+		}
+		.hidden-#{$point}{
+			display: none;
+		}
+	}
+}
+
+@media (min-width: get(xxs)){
+	
+}

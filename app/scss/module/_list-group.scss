@@ -1,0 +1,37 @@
+.list-group{
+	.list-group-item{
+		list-style: none;
+		display: block;
+		padding-top: rem(10px);
+		padding-bottom: rem(10px);
+		text-decoration: none;
+	}
+	a.list-group-item{
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+	.active{
+		background: $brand-primary;
+		color: $white;
+		padding-left: rem(15px);
+		padding-right: rem(15px);
+		&:hover{
+			text-decoration: none!important;
+		}
+	}
+	.list-group-item-text{
+		font-weight: $wl;
+	}
+}
+.list-group-bordered {
+	.list-group-item{
+		padding: rem(15px);
+		border-color: #ddd;
+		border-style: solid;
+		border-width: rem(1px) rem(1px) 0 rem(1px);
+		&:last-child{
+			border-width: rem(1px);
+		}
+	}
+}

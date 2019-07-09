@@ -1,0 +1,69 @@
+
+@mixin grid-box-modal($screen, $type, $index){
+	@if($type==padding){
+		.p-#{$screen}-#{$index*$box-modal-size}{
+			padding: $index * rem(5px);
+		}
+		.pt-#{$screen}-#{$index*$box-modal-size}{
+			padding-top: $index * rem(5px);
+		}
+		.pr-#{$screen}-#{$index*$box-modal-size}{
+			padding-right: $index * rem(5px);
+		}
+		.pb-#{$screen}-#{$index*$box-modal-size}{
+			padding-bottom: $index * rem(5px);
+		}
+		.pl-#{$screen}-#{$index*$box-modal-size}{
+			padding-left: $index * rem(5px);
+		}
+		.ph-#{$screen}-#{$index*$box-modal-size}{
+			padding-top: $index * rem(5px);
+			padding-bottom: $index * rem(5px);
+		}
+		.pv-#{$screen}-#{$index*$box-modal-size}{
+			padding-left: $index * rem(5px);
+			padding-right: $index * rem(5px);
+		}
+	}
+	@if($type==margin){
+		.m-#{$screen}-#{$index*$box-modal-size}{
+			margin: $index * rem(5px);
+		}
+		.mt-#{$screen}-#{$index*$box-modal-size}{
+			margin-top: $index * rem(5px);
+		}
+		.mr-#{$screen}-#{$index*$box-modal-size}{
+			margin-right: $index * rem(5px);
+		}
+		
+		.mb-#{$screen}-#{$index*$box-modal-size}{
+			margin-bottom: $index * rem(5px);
+		}
+		.ml-#{$screen}-#{$index*$box-modal-size}{
+			margin-left: $index * rem(5px);
+		}
+		.mh-#{$screen}-#{$index*$box-modal-size}{
+			margin-top: $index * rem(5px);
+			margin-bottom: $index * rem(5px);
+		}
+		.mv-#{$screen}-#{$index*$box-modal-size}{
+			margin-left: $index * rem(5px);
+			margin-right: $index * rem(5px);
+		}
+	}
+
+}
+
+@mixin _loop-box($screen, $type){
+	@for $i from 0 through $grid-columns {
+		@include grid-box-modal($screen, $type, $i);
+	}
+}
+
+
+@mixin _boxModal($media, $screen){
+	@media #{$media}{
+		@include _loop-box($screen, padding);
+		@include _loop-box($screen, margin);	
+	}
+}

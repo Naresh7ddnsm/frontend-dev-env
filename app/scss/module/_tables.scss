@@ -1,0 +1,29 @@
+.table{
+	width: 100%;
+	thead{
+		font-weight: $wb;
+		th{
+			padding-top: rem(8px);
+			padding-bottom: rem(8px);
+			text-align: left;
+		}
+	}
+	tbody{
+		td{
+			padding-top: rem(8px);
+			padding-bottom: rem(8px);
+		}
+	}
+}
+.table-bordered{
+	border-collapse: collapse;
+	td, th{
+		border: rem(1px) solid $table-border-color;
+		padding: rem(5px);
+	}
+}
+.table-striped{
+	tr:nth-child(odd) td{
+		background: $table-strip-color;
+	}
+}

@@ -1,0 +1,8 @@
+.form-control{
+	min-height: rem(34px);
+	background: #fff;
+	width: 100%;
+	border: none;
+	outline: none;
+	@include padding(null, rem(10px), null, rem(10px))
+}

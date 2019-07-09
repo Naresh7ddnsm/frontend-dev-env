@@ -1,0 +1,30 @@
+%grid-column {
+	position: relative;
+	width: 100%;
+	min-height: rem(1px);
+	padding-left:  ceil(($grid-gutter-width / 2));
+    padding-right: floor(($grid-gutter-width / 2));
+}
+
+[class*="grid-"]{
+	padding-left:  ceil(($grid-gutter-width / 2));
+    padding-right: floor(($grid-gutter-width / 2));
+}
+
+
+@each $point in map-keys($grid-breakpoints){
+	@for $i from 1 through $grid-columns {
+		.grid-#{$point}-#{$i} {
+			@extend %grid-column;
+		}
+	}
+	$min : map-get($grid-breakpoints, $point);
+	$media : "screen";
+	@if ($min != 0) {
+		$media : "(min-width:"+rem($min)+")";
+	}
+	@include _grid-generator($point, $media);
+}
+
+
+

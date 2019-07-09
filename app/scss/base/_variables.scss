@@ -1,0 +1,234 @@
+// basic configuration for freamwork components
+@import "./config";
+
+// Start with common colors
+$white:  #fff !default;
+$black:  #000 !default;
+$red:    #D64651 !default;
+$orange: #F4BD0E !default;
+$yellow: #ffd500 !default;
+$green:  #8FC238 !default;
+$blue:   #0275d8 !default;
+$mint:   #46BC98 !default;
+
+// brand colors
+$brand-color : #1957c9 !default;
+
+// navBar setting
+$navBarBg : $brand-color;
+
+$link-color : $brand-color;
+$link-color-black : #000;
+
+
+// Create grayscale
+$gray-dark:                 #292b2c !default;
+$gray:                      #464a4c !default;
+$gray-light:                #636c72 !default;
+$gray-lighter:              #eceeef !default;
+$gray-lightest:             #f7f7f9 !default;
+
+// Reassign color vars to semantic color scheme
+$brand-primary:             $brand-color !default;
+$brand-success:             $green !default;
+$brand-info:                $mint !default;
+$brand-warning:             $orange !default;
+$brand-danger:              $red !default;
+$brand-inverse:             $gray-dark !default;
+
+// btn settings
+
+$btn-lighten : 7%;
+
+$btn-default:             #fff!default;
+$btn-primary:             lighten($brand-color, $btn-lighten) !default;
+$btn-success:             lighten($green, $btn-lighten) !default;
+$btn-info:                lighten($mint, $btn-lighten) !default;
+$btn-warning:             lighten($orange, $btn-lighten) !default;
+$btn-danger:              lighten($red, $btn-lighten) !default;
+$btn-gray:             	  lighten($gray-dark, $btn-lighten) !default;
+
+$btn-default-hover:             #eee!default;
+$btn-primary-hover:             $brand-color !default;
+$btn-success-hover:             $green !default;
+$btn-info-hover:                $mint !default;
+$btn-warning-hover:             $orange !default;
+$btn-danger-hover:              $red !default;
+$btn-gray-hover:             $gray-dark !default;
+
+
+// alert setting
+
+$alerts : success,info,warning,danger;
+$alert-lighten : 35%;
+$alert-text : 28%;
+$alert-border : 20%;
+$alert-box-padding: rem(20px) !default;
+
+// style setting for `<table>` element
+$table-strip-color: #f7f7f7;
+$table-border-color: #ddd;
+
+// breadcrumb setting
+$bc-inactive-color: #333;
+$bc-active-color: $brand-color;
+
+
+//*** Settings for the `<body>` element.***//
+$body-bg:       $white !default;
+$body-color:    $gray-dark !default;
+
+// Style anchor elements.
+
+$link-color:            $brand-primary !default;
+$link-decoration:       none !default;
+$link-color-hover:      darken($link-color, 15%) !default;
+$link-decoration-hover: underline !default;
+
+
+$font-family-sans-serif: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-base:       $font-family-sans-serif !default;
+
+// base font styles
+$base-font-size : 16px !default;
+
+
+$font-size-h1: rem(floor($base-font-size * 2.55)) !default;
+$font-size-h2: rem(floor($base-font-size * 2.15)) !default;
+$font-size-h3: rem(ceil($base-font-size * 1.7)) !default;
+$font-size-h4: rem(ceil($base-font-size * 1.25)) !default;
+$font-size-h5: rem($base-font-size) !default;
+$font-size-h6: rem(ceil($base-font-size * 0.85)) !default;
+
+// font- weight setting 
+
+$wl : 300!default;
+$wm : 400!default;
+$wb : 700!default;
+
+//box-modal
+$box-modal-size: 5;
+
+// Grid setting 
+$grid-breakpoints: (
+  xxs: 0,
+  xs: 578px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xlg: 1680px
+) !default;
+
+// Container setting
+$container-width:	(
+  xs: 540px,
+  sm: 740px,
+  md: 940px,
+  lg: 1180px
+) !default;
+
+
+$grid-columns:          12 !default;
+$grid-gutter-width:			rem(30px)!default;
+$gutters : (0,10,20,30,40,50,60);
+$grid-breakpoints-keys : map-keys($grid-breakpoints);
+
+
+// media settting
+// $xxs-min : 		0!default;
+// $xs-min : 		rem(map-get($grid-breakpoints, xs))!default;
+// $sm-min : 		rem(map-get($grid-breakpoints, sm))!default;
+// $md-min : 		rem(map-get($grid-breakpoints, md))!default;
+// $lg-min : 		rem(map-get($grid-breakpoints, lg))!default;
+// $xl-min : 		rem(map-get($grid-breakpoints, xl))!default;
+// $hd-min : 		rem(map-get($grid-breakpoints, hd))!default;
+
+
+// $xxs-max :		$xs-min - rem(1px)!default;
+// $xs-max :			$sm-min - rem(1px)!default;
+// $sm-max :			$md-min - rem(1px)!default;
+// $md-max :			$lg-min - rem(1px)!default;
+// $lg-max :			$xl-min - rem(1px)!default;
+// $xl-max :			$hd-min - rem(1px)!default;
+
+
+// $mobile-vmin:				$xxs-min!default;
+// $mobile-hmin:				$xs-min!default;
+// $tablet-vmin:				$sm-min!default;
+// $tablet-hmin:				$md-min!default;
+// $laptop-min:				$lg-min!default;
+// $desktop-min:				$xl-min!default;
+// $hdscreen-min:			$hd-min!default;
+
+// $mobile-vmax:				$xxs-max!default;
+// $mobile-hmax:				$xs-max!default;
+// $tablet-vmax:				$sm-max!default;
+// $tablet-hmax:				$md-max!default;
+// $laptop-max:				$lg-max!default;
+// $desktop-max:				$xl-max!default;
+
+
+// // media query setting
+
+// $media-xxs-min:				"screen";
+// $media-xs-min:				"(min-width: "+$xs-min+")";
+// $media-sm-min:				"(min-width: "+$sm-min+")";
+// $media-md-min:				"(min-width: "+$md-min+")";
+// $media-lg-min:				"(min-width: "+$lg-min+")";
+// $media-xl-min:				"(min-width: "+$xl-min+")";
+// $media-hd-min:				"(min-width: "+$hd-min+")";
+
+// $media-xxs-max:				"(max-width: "+$xxs-max+")";
+// $media-xs-max:				"(max-width: "+$xs-max+")";
+// $media-sm-max:				"(max-width: "+$sm-max+")";
+// $media-md-max:				"(max-width: "+$md-max+")";
+// $media-lg-max:				"(max-width: "+$lg-max+")";
+// $media-xl-max:				"(max-width: "+$xl-max+")";
+
+
+// $media-mobile-vmin:			"screen";
+// $media-mobile-hmin:			"(min-width: "+$xs-min+")";
+// $media-tablet-vmin:			"(min-width: "+$sm-min+")";
+// $media-tablet-hmin:			"(min-width: "+$md-min+")";
+// $media-laptop-min:			"(min-width: "+$lg-min+")";
+// $media-desktop-min:			"(min-width: "+$xl-min+")";
+// $media-hdscreen-min:		"(min-width: "+$hd-min+")";
+
+// $media-mobile-vmax:			"(max-width: "+$xxs-max+")";
+// $media-mobile-hmax:			"(max-width: "+$xs-max+")";
+// $media-tablet-vmax:			"(max-width: "+$sm-max+")";
+// $media-tablet-hmax:			"(max-width: "+$md-max+")";
+// $media-laptop-max:			"(max-width: "+$lg-max+")";
+// $media-desktop-max:			"(max-width: "+$xl-max+")";
+
+// $media-mobile-vonly:		"(max-width: "+$xxs-max+")";
+// $media-mobile-honly:		"(min-width: "+$xs-min+") and (max-width: "+$xs-max+")";
+// $media-mobile-only:			"(max-width: "+$xs-max+")";
+// $media-tablet-vonly:		"(min-width: "+$sm-min+") and (max-width: "+$sm-max+")";
+// $media-tablet-honly:		"(min-width: "+$md-min+") and (max-width: "+$md-max+")";
+// $media-tablet-only:			"(min-width: "+$sm-min+") and (max-width: "+$md-max+")";
+// $media-laptop-only:			"(min-width: "+$lg-min+") and (max-width: "+$lg-max+")";
+// $media-desktop-only:		"(min-width: "+$xl-min+")";
+// $media-hd-only:				  "(min-width: "+$hd-min+")";
+
+// $media-xxs-only:			"(max-width: "+$xxs-max+")";
+// $media-xs-only:				"(min-width: "+$xs-min+") and (max-width: "+$xs-max+")";
+// $media-sm-only:				"(min-width: "+$sm-min+") and (max-width: "+$sm-max+")";
+// $media-md-only:				"(min-width: "+$md-min+") and (max-width: "+$md-max+")";
+// $media-lg-only:				"(min-width: "+$lg-min+") and (max-width: "+$lg-max+")";
+// $media-xl-only:				"(min-width: "+$xl-min+")";
+// $media-hd-only:				"(min-width: "+$hd-min+")";
+
+
+// Style setting for  `<list-group>` elements
+
+
+
+
+
+
+
+
+
+
+

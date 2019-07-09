@@ -1,0 +1,12 @@
+@mixin _vis(){
+	$keys : map-keys($grid-breakpoints);
+	$vis : ".visible-#{nth($keys, 1)}, .hidden-#{nth($keys, 1)}, .visible-#{nth($keys, 1)}-only";
+	
+	@for $i from 1 + 1  through length($keys) {
+		$point: nth($keys, $i);
+		$vis : "#{$vis}, .visible-#{$point}, .hidden-#{$point}, .visible-#{$point}-only";
+	}
+	#{$vis} {
+		display: none;
+	}
+}

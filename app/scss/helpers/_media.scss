@@ -1,0 +1,26 @@
+
+@mixin _media($media, $width, $between: 0) {
+    @if(type-of($width) == "number"){
+      $width : $width;
+    } @else {
+      $width : get($width);
+    };
+    @if(type-of($between) == "number"){
+      $between : $between;
+    } @else {
+      $between : get($between);
+    };
+    
+    $width: rem($width);
+    $between: rem($between);
+
+    @if($between != 0){
+      @media (min-width: $width) and (max-width: $between){
+        @content; 
+      }
+    } @else {
+      @media (#{$media}-width: $width){
+            @content;
+        }
+    }
+}

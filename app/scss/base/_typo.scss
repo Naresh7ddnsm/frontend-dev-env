@@ -1,0 +1,70 @@
+
+h1,.h1{
+	font-size: $font-size-h1;
+	margin-top: rem(20px);
+	margin-bottom: rem(10px);
+}
+h2,.h2{
+	font-size: $font-size-h2;
+	margin-top: rem(18px);
+	margin-bottom: rem(10px);
+}
+h3,.h3{
+	font-size: $font-size-h3;
+	margin-top: rem(18px);
+	margin-bottom: rem(10px);
+}
+h4,.h4{
+	font-size: $font-size-h4;
+}
+h5,.h5{
+	font-size: $font-size-h5;
+}
+h6,.h6{
+	font-size: $font-size-h6;
+}
+strong,.strong{
+	font-weight: $wb;
+}
+.text-white{
+	color: #fff;
+}
+.text-black{
+	color: #000;
+}
+.text-left {
+	text-align: left!important
+}
+.text-right {
+	text-align: right!important
+}
+.text-center {
+	text-align: center!important
+}
+.text-justify {
+	text-align: justify!important
+}
+.text-nowrap {
+	white-space: nowrap!important
+}
+.text-lowercase {
+	text-transform: lowercase!important;
+}
+.text-uppercase {
+	text-transform: uppercase!important
+}
+.text-capitalize {
+	text-transform: capitalize!important
+}
+.text-light {
+	font-weight: $wl;
+}
+.text-normal {
+	font-weight: $wm;
+}
+.text-bold {
+	font-weight: $wb;
+}
+.text-small{
+	font-size: 80%;
+}

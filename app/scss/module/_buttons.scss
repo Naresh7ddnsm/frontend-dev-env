@@ -1,0 +1,117 @@
+.btn{
+	min-height: rem(34px);
+	outline: none;
+	border: 0;
+	cursor: pointer;
+	@include padding(rem(10px), rem(10px), rem(10px), rem(10px));
+	text-decoration: none;
+}
+.btn-round{
+	@include border-radius(rem(4px));
+}
+.btn-sm{
+	padding: rem(4px) rem(8px); 
+	@include font-size(14px);
+	&.btn-round{
+		@include border-radius(rem(2px));
+	}
+}
+.btn-md{
+	padding: rem(10px);
+	@include font-size(16px);
+	&.btn-round{
+		@include border-radius(rem(4px));
+	}
+}
+.btn-lg{
+	padding: rem(10px) rem(20px);
+	@include font-size(18px);
+	&.btn-round{
+		@include border-radius(rem(6px));
+	}
+}
+.btn-default{
+	background:$btn-default;
+	border: rem(1px) solid $btn-default-hover;
+}
+.btn-default:hover{
+	background:$btn-default-hover;
+	border: rem(1px) solid $btn-default-hover;
+}
+.btn-primary{
+	background:$btn-primary;
+	border: rem(1px) solid $btn-primary-hover;
+	color: #fff;
+}
+.btn-primary:hover{
+	background:$btn-primary-hover;
+	border: rem(1px) solid $btn-primary-hover;
+}
+.btn-success{
+	background:$btn-success;
+	border: rem(1px) solid $btn-success-hover;
+	color: #fff;
+}
+.btn-success:hover{
+	background:$btn-success-hover;
+	border: rem(1px) solid $btn-success-hover;
+}
+.btn-info{
+	background:$btn-info;
+	border: rem(1px) solid $btn-info-hover;
+	color: #fff;
+}
+.btn-info:hover{
+	background:$btn-info-hover;
+	border: rem(1px) solid $btn-info-hover;
+}
+.btn-warning{
+	background:$btn-warning;
+	border: rem(1px) solid $btn-warning-hover;
+	color: #fff;
+}
+.btn-warning:hover{
+	background:$btn-warning-hover;
+	border: rem(1px) solid $btn-warning-hover;
+}
+.btn-danger{
+	background:$btn-danger;
+	border: rem(1px) solid $btn-danger-hover;
+	color: #fff;
+}
+.btn-danger:hover{
+	background:$btn-danger-hover;
+	border: rem(1px) solid $btn-danger-hover;
+}
+.btn-gray{
+	background:$btn-gray;
+	border: rem(1px) solid $btn-gray-hover;
+	color: #fff;
+}
+.btn-gray:hover{
+	background:$btn-gray-hover;
+	border: rem(1px) solid $btn-gray-hover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
