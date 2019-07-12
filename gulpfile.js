@@ -10,49 +10,88 @@ const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const pug = require('gulp-pug');
+const imagemin = require('gulp-imagemin');
 var replace = require('gulp-replace');
 
 // Declaring Paths 
 const fsPath = { 
-	basePath: './app/',
-	baseDestPath: './dist/',
-	htmlPath: './*.html',
-	htmlDestPath: './dist/',
-    scssPath: './app/scss/**/*.scss',
-	scssDestPath: './dist/assets/css/',
-    jsPath: 'app/js/**/*.js',
-	jsDestPath: './dist/assets/js/',
-	imagesPath: './app/images/',
-	imagesDestPath: './dist/assetes/images/'
+	app: {
+		base: './app/' ,
+		html: './app/*.html',
+		pug: './app/**/*.pug',
+		js: './app/js/**/*.js',
+		css: './app/scss/*.scss',
+		fonts: './app/fonts/*.*',
+		img: './app/images/**/*',
+		data: 'app/js/data/*.*',
+	},
+	dist: {
+		base: './dist/',
+		html: './dist/',
+		js: './dist/assets/js/',
+		css: './dist/assets/css/',
+		fonts: './dist/assets/fonts/',
+		img: './dist/assets/images/',
+		data: './dist/assets/js/data/',
+	}
 }
+
+//PUG: Using html template 
+task('pugTask', () => {
+	return src(fsPath.app.pug)
+	.pipe(pug({
+		pretty: true // Disable minifying the HTML
+	})) // Compile PUG to HTML
+	.pipe(dest(fsPath.dist.html)) // Put final HTML in dist folder
+})
 
 // Moving HTML files
 task('htmlTask', () => { 
-	return src(fsPath.htmlPath)
-	.pipe(dest(fsPath.htmlDestPath));
+	return src(fsPath.app.html)
+	.pipe(dest(fsPath.dist.html));
 })
 
 // Sass task: compiles the style.scss file into style.css
 task('scssTask', () => {    
-    return src(fsPath.scssPath)
+    return src(fsPath.app.css)
         .pipe(sourcemaps.init()) // initialize sourcemaps first
         .pipe(sass()) // compile SCSS to CSS
         .pipe(postcss([ autoprefixer(), cssnano() ])) // PostCSS plugins
         .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
-        .pipe(dest(fsPath.scssDestPath)
+        .pipe(dest(fsPath.dist.css)
     ); // put final CSS in dist folder
 })
 
 // JS task: concatenates and uglifies JS files to script.js
 task('jsTask', () => {
     return src([
-        fsPath.jsPath
+        fsPath.app.js
 	])
         .pipe(concat('app.js'))
         .pipe(uglify())
-        .pipe(dest(fsPath.jsDestPath)
+        .pipe(dest(fsPath.dist.js)
 	);
 });
+
+
+// Fonts
+// Moveing fonts from app folder to dist folder
+task('fontTask', function() {
+    return src([fsPath.app.fonts])
+		.pipe(dest(fsPath.dist.fonts));
+});
+
+// Images
+// compress images
+task('imageTask', function() {
+    return src([fsPath.app.img])
+		.pipe(imagemin({
+			optimizationLevel: 5
+		}))
+		.pipe(dest(fsPath.dist.img));
+});
+
 
 // Reload browser
 // done: callback function to make sure the reload function is completed.
@@ -65,7 +104,7 @@ task('browserSyncReload', (done) => {
 task('browsersync', ()=> {
   browserSync.init({
     server: {
-      baseDir: fsPath.baseDestPath
+      baseDir: fsPath.dist.base
     },
     port: 3000
   });
@@ -75,14 +114,18 @@ task('browsersync', ()=> {
 // filePath: Actual file which will be changed on development phase
 // Task, Reload Task: Callback tasks, which run in series if the file changes occurs in mentioned path.
 task('watcher', () => {
-	watch([fsPath.htmlPath], series('htmlTask', 'browserSyncReload'))
-	watch([fsPath.scssPath], series('scssTask', 'browserSyncReload'))
-	watch([fsPath.jsPath], series('jsTask', 'browserSyncReload'))
+	watch([fsPath.app.pug], series('pugTask', 'browserSyncReload'))
+	watch([fsPath.app.html], series('htmlTask', 'browserSyncReload'))
+	watch([fsPath.app.css], series('scssTask', 'browserSyncReload'))
+	watch([fsPath.app.js], series('jsTask', 'browserSyncReload'))
+	watch([fsPath.app.fonts], series('fontTask', 'browserSyncReload'))
+	watch([fsPath.app.img], series('imageTask', 'browserSyncReload'))
 })
 
 // Task will be execute on gulp command 
 exports.default = series(
-	series('htmlTask', 'scssTask', 'jsTask'),
+	// we can add more task as series
+	series('htmlTask', 'pugTask', 'scssTask', 'jsTask', 'fontTask', 'imageTask'),
 	parallel('browsersync', 'watcher')
 );
 

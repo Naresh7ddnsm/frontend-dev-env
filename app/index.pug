@@ -1,0 +1,35 @@
+doctype html
+html
+	head
+		meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+		title Your Website
+		link(href="/assets/css/main.css" rel="stylesheet")
+	body
+		// Header start
+		header
+			nav
+				ul
+					li Menu 1
+					li Menu 2
+		// Header end
+		
+		section
+			article
+				header
+					h2 Article title new
+					p
+						| Posted on 
+						time(datetime='2009-09-04T16:31:24+02:00') September 4th 2009
+						|  by 
+						a(href='#') Writer
+						|  - 
+						a(href='#comments') 6 comments
+					p
+						| Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+		aside
+			h2 About section
+			p
+				| Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+		footer
+			p Copyright 2009 Your name.
+		script(src="/assets/js/app.js")
