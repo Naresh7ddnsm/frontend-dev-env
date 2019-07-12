@@ -1,7 +1,7 @@
 {
   "name": "frontend-boilerplate",
   "version": "1.0.0",
-  "description": "Simple front-end boilerplate using Gulp 4",
+  "description": "Simple front-end development using Gulp 4",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "javascript",
     "pug"
   ],
-  "author": "@thecodercoder",
+  "author": "@naresh1ddnsm",
   "license": "ISC",
   "bugs": {
     "url": ""
